@@ -5,9 +5,9 @@ import QuizLayout from '@/components/QuizLayout';
 import { CreditCard, Phone, Mail, RotateCcw } from 'lucide-react';
 
 const Withdraw = () => {
-  const [selectedMethod, setSelectedMethod] = useState('pix');
+  const [selectedMethod, setSelectedMethod] = useState('cpf');
   const [formData, setFormData] = useState({
-    cpf: '',
+    pixKey: '',
     fullName: '',
     whatsapp: '',
     amount: ''
@@ -18,11 +18,16 @@ const Withdraw = () => {
   const realValue = availableBalance * dollarRate;
 
   const paymentMethods = [
-    { id: 'pix', label: 'PIX', icon: CreditCard, active: true },
-    { id: 'phone', label: 'Telefone', icon: Phone, active: false },
-    { id: 'email', label: 'Email', icon: Mail, active: false },
-    { id: 'random', label: 'Aleatória', icon: RotateCcw, active: false }
+    { id: 'cpf', label: 'CPF', icon: CreditCard, active: true, placeholder: 'Digite seu CPF' },
+    { id: 'phone', label: 'Telefone', icon: Phone, active: true, placeholder: 'Digite seu telefone' },
+    { id: 'email', label: 'Email', icon: Mail, active: true, placeholder: 'Digite seu email' },
+    { id: 'random', label: 'Aleatória', icon: RotateCcw, active: true, placeholder: 'Digite sua chave aleatória' }
   ];
+
+  const getCurrentPlaceholder = () => {
+    const method = paymentMethods.find(m => m.id === selectedMethod);
+    return method ? method.placeholder : 'Digite sua chave PIX';
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -88,9 +93,9 @@ const Withdraw = () => {
             <label className="block text-left text-white font-bold mb-2">Chave PIX</label>
             <input
               type="text"
-              placeholder="Digite seu CPF"
-              value={formData.cpf}
-              onChange={(e) => setFormData({ ...formData, cpf: e.target.value })}
+              placeholder={getCurrentPlaceholder()}
+              value={formData.pixKey}
+              onChange={(e) => setFormData({ ...formData, pixKey: e.target.value })}
               className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400"
             />
           </div>
