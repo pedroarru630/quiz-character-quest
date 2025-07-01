@@ -31,7 +31,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-between p-4 bg-gray-800">
+    <div className="flex items-center justify-between p-4" style={{ backgroundColor: '#292929' }}>
       <img 
         src="/lovable-uploads/838056ac-1818-4778-a4e0-d4159d61d9dc.png" 
         alt="Spotify" 
