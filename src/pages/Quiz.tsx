@@ -104,7 +104,7 @@ const Quiz = () => {
           <img
             src={currentArtist.image}
             alt={currentArtist.name}
-            className="w-full h-64 object-cover rounded-2xl"
+            className="w-full h-80 object-contain rounded-2xl bg-gray-800"
           />
           <div className="absolute bottom-4 left-4">
             <div className="flex items-center gap-2 mb-2">
