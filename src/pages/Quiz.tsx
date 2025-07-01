@@ -101,11 +101,13 @@ const Quiz = () => {
       <div className="text-center space-y-8">
         {/* Artist Image and Name */}
         <div className="relative mb-8">
-          <img
-            src={currentArtist.image}
-            alt={currentArtist.name}
-            className="w-full h-80 object-contain rounded-2xl bg-gray-800"
-          />
+          <div className="w-full aspect-[9/4] rounded-2xl overflow-hidden bg-gray-800">
+            <img
+              src={currentArtist.image}
+              alt={currentArtist.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="absolute bottom-4 left-4">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
