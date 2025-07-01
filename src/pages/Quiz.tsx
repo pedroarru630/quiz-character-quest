@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
@@ -100,24 +99,16 @@ const Quiz = () => {
     <QuizLayout showProgress={true} currentStep={currentArtistIndex + 1} totalSteps={artists.length}>
       <div className="text-center space-y-8">
         {/* Artist Image and Name */}
-        <div className="relative mb-8">
-          <div className="w-full aspect-[9/4] rounded-2xl overflow-hidden bg-gray-800">
+        <div className="mb-8">
+          <div className="w-full aspect-[9/4] rounded-2xl overflow-hidden bg-gray-800 mb-4">
             <img
               src={currentArtist.image}
               alt={currentArtist.name}
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute bottom-4 left-4">
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
-                <span className="text-white text-xs">✓</span>
-              </div>
-              <span className="text-white text-sm">Artista verificado</span>
-            </div>
-            <h2 className="text-2xl font-bold text-white">{currentArtist.name}</h2>
-            <p className="text-white text-sm opacity-75">{currentArtist.listeners}</p>
-          </div>
+          <h2 className="text-2xl font-bold text-white mb-2">{currentArtist.name}</h2>
+          <p className="text-white text-sm opacity-75">{currentArtist.listeners}</p>
         </div>
         
         {/* Question 1: Rating */}
@@ -134,8 +125,8 @@ const Quiz = () => {
                 className={`aspect-square ${
                   currentAnswers.rating === num.toString() 
                     ? 'bg-green-500 border-green-500' 
-                    : 'bg-gray-800 hover:bg-green-500 border-gray-600 hover:border-green-500'
-                } border-2 rounded-2xl flex items-center justify-center text-2xl font-bold transition-all duration-200`}
+                    : 'hover:bg-green-500 hover:border-green-500'
+                } bg-[#292929] border-2 border-[#292929] rounded-2xl flex items-center justify-center text-2xl font-bold text-white transition-all duration-200`}
               >
                 {num}
               </button>
@@ -155,8 +146,8 @@ const Quiz = () => {
               className={`${
                 currentAnswers.recommendation === 'sim'
                   ? 'bg-green-500 border-green-500'
-                  : 'bg-gray-800 hover:bg-green-500 border-gray-600 hover:border-green-500'
-              } text-white border-2 font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
+                  : 'hover:bg-green-500 hover:border-green-500'
+              } bg-[#292929] text-white border-2 border-[#292929] font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
             >
               Sim
             </Button>
@@ -166,8 +157,8 @@ const Quiz = () => {
               className={`${
                 currentAnswers.recommendation === 'nao'
                   ? 'bg-green-500 border-green-500'
-                  : 'bg-gray-800 hover:bg-green-500 border-gray-600 hover:border-green-500'
-              } text-white border-2 font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
+                  : 'hover:bg-green-500 hover:border-green-500'
+              } bg-[#292929] text-white border-2 border-[#292929] font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
             >
               Não
             </Button>
@@ -186,8 +177,8 @@ const Quiz = () => {
               className={`${
                 currentAnswers.ageGroup === '-18'
                   ? 'bg-green-500 border-green-500'
-                  : 'bg-gray-800 hover:bg-green-500 border-gray-600 hover:border-green-500'
-              } text-white border-2 font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
+                  : 'hover:bg-green-500 hover:border-green-500'
+              } bg-[#292929] text-white border-2 border-[#292929] font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
             >
               -18 anos
             </Button>
@@ -197,8 +188,8 @@ const Quiz = () => {
               className={`${
                 currentAnswers.ageGroup === '+18'
                   ? 'bg-green-500 border-green-500'
-                  : 'bg-gray-800 hover:bg-green-500 border-gray-600 hover:border-green-500'
-              } text-white border-2 font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
+                  : 'hover:bg-green-500 hover:border-green-500'
+              } bg-[#292929] text-white border-2 border-[#292929] font-bold py-6 rounded-2xl text-lg transition-all duration-200`}
             >
               +18 anos
             </Button>
@@ -209,7 +200,7 @@ const Quiz = () => {
         <Button
           onClick={handleSubmit}
           disabled={!currentAnswers.rating || !currentAnswers.recommendation || !currentAnswers.ageGroup}
-          className="w-full bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:opacity-50 text-white font-bold py-4 rounded-2xl text-lg transition-all duration-200"
+          className="w-full bg-[#292929] hover:bg-gray-600 disabled:bg-gray-800 disabled:opacity-50 text-white font-bold py-4 rounded-2xl text-lg transition-all duration-200"
         >
           Enviar respostas
         </Button>
